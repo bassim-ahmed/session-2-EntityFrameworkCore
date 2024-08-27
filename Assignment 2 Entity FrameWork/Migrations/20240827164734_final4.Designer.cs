@@ -4,6 +4,7 @@ using Assignment_2_Entity_FrameWork.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment_2_Entity_FrameWork.Migrations
 {
     [DbContext(typeof(ITI_EFW_Context))]
-    partial class ITI_EFW_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240827164734_final4")]
+    partial class final4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,10 +134,10 @@ namespace Assignment_2_Entity_FrameWork.Migrations
 
             modelBuilder.Entity("assignment_1_entity_frame_work.Entities.Stud_Course", b =>
                 {
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Grade")

@@ -15,5 +15,6 @@ namespace assignment_1_entity_frame_work.Entities
         public decimal HourRate { get; set; }
         public decimal Bouns { get; set; }
         public int Dept_ID { get; set; }
+        public Department? Department { get; set; }
     }
 }

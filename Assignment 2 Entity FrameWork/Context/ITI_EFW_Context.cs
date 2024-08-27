@@ -14,8 +14,39 @@ namespace Assignment_2_Entity_FrameWork.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course_Inst>().HasKey(k => new {k.Course_ID,k.inst_ID});
-            modelBuilder.Entity<Stud_Course>().HasKey(E => new { E.Course_ID, E.stud_ID });
+            modelBuilder.Entity<Stud_Course>().HasKey(E => new { E.CourseId, E.StudentId});
+            modelBuilder.Entity<Course>().HasKey(D => D.ID);
+
+
+
+            modelBuilder.Entity<Student>()
+          .HasOne(s => s.Department)
+          .WithMany(d => d.Students)
+          .HasForeignKey(s => s.DepartmentId);
+
+            modelBuilder.Entity<Course>()
+         .HasOne(c => c.Topic)
+         .WithMany(t => t.Courses)
+         .HasForeignKey(c => c.Top_ID);
+
+
+            modelBuilder.Entity<Department>()
+      .HasOne(d => d.Instructor)
+      .WithOne(i => i.Department)
+      .HasForeignKey<Department>(d => d.InstructorId);
+
+
+            modelBuilder.Entity<Instructor>()
+          .HasOne(i => i.Department)
+          .WithOne(d => d.Instructor)
+          .HasForeignKey<Instructor>(i => i.Dept_ID);
+
+
+
+
+
             base.OnModelCreating(modelBuilder);
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

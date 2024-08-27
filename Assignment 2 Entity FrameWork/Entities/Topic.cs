@@ -10,6 +10,8 @@ namespace assignment_1_entity_frame_work.Entities
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public List<Course> Courses { get; set; }
+
     }
 
 }

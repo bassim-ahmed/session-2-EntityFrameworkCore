@@ -8,8 +8,8 @@ namespace assignment_1_entity_frame_work.Entities
 {
     internal class Stud_Course
     {
-        public int? stud_ID { get; set; }
-        public int? Course_ID { get; set; }
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
         public string Grade { get; set; }
     }
 }
