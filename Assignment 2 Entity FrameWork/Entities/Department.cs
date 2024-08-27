@@ -18,5 +18,9 @@ namespace assignment_1_entity_frame_work.Entities
         public int InstructorId { get; set; }
         [Column("HiringDate")]
         public DateTime InstructorHiringDate { get; set; }
+       
+        public Instructor Instructor { get; set; }
+
+        public List<Student> Students { get; set; }
     }
 }

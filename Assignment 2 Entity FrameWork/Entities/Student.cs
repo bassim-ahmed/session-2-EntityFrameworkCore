@@ -26,5 +26,10 @@ namespace assignment_1_entity_frame_work.Entities
         public int StudentAge { get; set; }
         [Column("Dep_Id")]
         public int DepartmentId { get; set; }
+
+
+        public Department Department { get; set; }
+
+        public List<Stud_Course> Course { get; set; }
     }
 }

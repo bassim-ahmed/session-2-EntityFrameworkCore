@@ -4,6 +4,7 @@ using Assignment_2_Entity_FrameWork.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment_2_Entity_FrameWork.Migrations
 {
     [DbContext(typeof(ITI_EFW_Context))]
-    partial class ITI_EFW_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240827165236_Init12644")]
+    partial class Init12644
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

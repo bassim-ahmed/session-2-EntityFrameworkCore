@@ -4,6 +4,7 @@ using Assignment_2_Entity_FrameWork.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment_2_Entity_FrameWork.Migrations
 {
     [DbContext(typeof(ITI_EFW_Context))]
-    partial class ITI_EFW_ContextModelSnapshot : ModelSnapshot
+    [Migration("20240827164519_final")]
+    partial class final
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,19 +134,27 @@ namespace Assignment_2_Entity_FrameWork.Migrations
 
             modelBuilder.Entity("assignment_1_entity_frame_work.Entities.Stud_Course", b =>
                 {
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("Course")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentId")
+                    b.Property<int?>("StudntId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CourseID")
                         .HasColumnType("int");
 
                     b.Property<string>("Grade")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CourseId", "StudentId");
+                    b.Property<int?>("StudentID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("StudentId");
+                    b.HasKey("Course", "StudntId");
+
+                    b.HasIndex("CourseID");
+
+                    b.HasIndex("StudentID");
 
                     b.ToTable("Stud_Course");
                 });
@@ -229,15 +240,11 @@ namespace Assignment_2_Entity_FrameWork.Migrations
                 {
                     b.HasOne("assignment_1_entity_frame_work.Entities.Course", null)
                         .WithMany("Students")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseID");
 
                     b.HasOne("assignment_1_entity_frame_work.Entities.Student", null)
                         .WithMany("Course")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudentID");
                 });
 
             modelBuilder.Entity("assignment_1_entity_frame_work.Entities.Student", b =>
